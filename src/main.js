@@ -2,6 +2,8 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import ElementPlus from 'element-plus'
+import 'element-plus/lib/theme-chalk/index.css'
 import './assets/css/global.css'
 
 const app = createApp(App)
@@ -14,8 +16,7 @@ requireComponents.keys().forEach(fileName => {
 
   let componentName = fileName.slice(2, -4)
   componentName = componentName.split('/')[componentName.split('/').length - 1].replace(/_/g, '-')
-  console.log(componentName)
   app.component(componentName, componentConfig.default || componentConfig)
 })
 
-app.use(store).use(router).mount('#app')
+app.use(store).use(router).use(ElementPlus).mount('#app')
