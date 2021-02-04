@@ -1,10 +1,8 @@
 <template>
   <div class="common-header">
-    <div class="user-info">
-
-    </div>
+    <div class="user-info"></div>
     <div class="header-nav">
-      <div class="routes" v-for="item in list" :key="item.name">
+      <div v-for="item in list" :key="item.name" class="routes">
         <router-link :to="item.path">{{ item.name }}</router-link>
       </div>
     </div>
@@ -20,23 +18,23 @@ export default {
     // console.log(props)
     const list = reactive([
       { name: 'Home', path: '/' },
-      { name: 'Test', path: '/' }
+      { name: 'Test', path: '/' },
     ])
     console.log(list)
 
     return {
-      list
+      list,
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
-  .common-header {
-    width: 400px;
-    height: 100%;
-    .user-info {
-      height: 100px;
-    }
+.common-header {
+  width: 400px;
+  height: 100%;
+  .user-info {
+    height: 100px;
   }
+}
 </style>

@@ -1,20 +1,18 @@
 <template>
   <common-header />
-  <router-view/>
+  <router-view />
 </template>
 
 <script>
 export default {
   name: 'app',
-  setup() {
-
-  }
+  setup() {},
 }
 </script>
 
 <style lang="scss">
-  #app {
-    width: 100%;
-    height: 100%;
-  }
+#app {
+  width: 100%;
+  height: 100%;
+}
 </style>
