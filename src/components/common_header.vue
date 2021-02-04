@@ -19,6 +19,10 @@ export default {
     const list = reactive([
       { name: 'Home', path: '/' },
       { name: 'Test', path: '/' },
+      { name: 'aaa', path: '/' },
+      { name: 'bbb', path: '/' },
+      { name: 'ccc', path: '/' },
+      { name: 'ddd', path: '/' },
     ])
     console.log(list)
 
@@ -33,8 +37,17 @@ export default {
 .common-header {
   width: 400px;
   height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 5px 0px;
+  background: azure;
+  text-align: center;
   .user-info {
     height: 100px;
+  }
+  .header-nav {
+    background: azure;
+    .routes {
+      padding: 5px;
+    }
   }
 }
 </style>
