@@ -24,7 +24,7 @@ export default {
       { name: 'ccc', path: '/' },
       { name: 'ddd', path: '/' },
     ])
-    console.log(list)
+    // console.log(list)
 
     return {
       list,

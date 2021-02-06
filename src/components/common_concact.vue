@@ -19,7 +19,7 @@
             :class="item.show ? 'slip-out' : 'slip-in'"
             @click="goGithub"
           >
-            <span class="sprite-git" style="cursor: pointer"></span>
+            <span class="sprite-git-icon" style="cursor: pointer"></span>
           </span>
         </div>
       </div>
@@ -28,37 +28,31 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, toRefs } from 'vue'
 export default {
   name: 'common-concact',
   setup() {
-    const concactList = reactive([
-      { name: '仓库地址', value: 'git', show: true },
-    ])
-
-    function mouseover(item) {
-      this.concactList.map((el) => {
-        if (el.name === item.name) {
-          el.show = false
-        }
-      })
-    }
-    function mouseleave(item) {
-      this.concactList.map((el) => {
-        if (el.name === item.name) {
-          el.show = true
-        }
-      })
-    }
-    function goGithub() {
-      window.open('https://github.com/m-f-home/ThreeZeroFive')
-    }
-    return {
-      concactList,
-      mouseover,
-      mouseleave,
-      goGithub,
-    }
+    const data = reactive({
+      concactList: [{ name: '仓库地址', value: 'git', show: true }],
+      mouseover(item) {
+        this.concactList.map((el) => {
+          if (el.name === item.name) {
+            el.show = false
+          }
+        })
+      },
+      mouseleave(item) {
+        this.concactList.map((el) => {
+          if (el.name === item.name) {
+            el.show = true
+          }
+        })
+      },
+      goGithub() {
+        window.open('https://github.com/m-f-home/ThreeZeroFive')
+      },
+    })
+    return { ...toRefs(data) }
   },
 }
 </script>
