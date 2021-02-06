@@ -1,6 +1,7 @@
 <template>
   <common-header />
   <router-view />
+  <common-concact />
 </template>
 
 <script>

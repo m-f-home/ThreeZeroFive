@@ -6,10 +6,10 @@ const buffer = require('vinyl-buffer')
 const spritesmith = require('gulp.spritesmith')
 const spritesPath = path.join(__dirname, 'src/assets/img')
 
-const STATIC_PATH = '/'
+const STATIC_PATH = ''
 
-let spritesArray = []
-;(function(dir) {
+var spritesArray = []
+;(function (dir) {
   let fileList = []
   fs.readdirSync(dir).forEach((name) => {
     const spritesFile = path.join(spritesPath, name)
@@ -24,10 +24,10 @@ let spritesArray = []
           spritesmith({
             imgName: `${name}_icon.png`, // 生成雪碧图的路径
             imgPath: `${STATIC_PATH}/img/${name}_icon.png`, // 手动指定路径，会直接出现在background的属性值中
-            cssName: `_${name}_icon.less`, // 生成less文件，方便引用。
+            cssName: `_${name}_icon.scss`, // 生成scss文件，方便引用。
             cssTemplate: (data) => {
               return cssTemplate2(data)
-            }
+            },
           })
         )
         spritesData.css.pie(gulp.dest(path.join(__dirname, 'src/assets/css')))
@@ -45,10 +45,10 @@ let spritesArray = []
         spritesmith({
           imgName: `app_icon.png`, // 生成雪碧图的路径
           imgPath: `${STATIC_PATH}/img/app_icon.png`, // 手动指定路径，会直接出现在background的属性值中
-          cssName: `_app_icon.less`, // 生成less文件，方便引用。
+          cssName: `_app_icon.scss`, // 生成scss文件，方便引用。
           cssTemplate: (data) => {
             return cssTemplate2(data)
-          }
+          },
         })
       )
       spritesData.css.pipe(gulp.dest(path.join(__dirname, 'src/assets/css')))
@@ -60,13 +60,13 @@ let spritesArray = []
   }
 })(spritesPath)
 
-var cssTemplate2 = function(data) {
+var cssTemplate2 = function (data) {
   let arr = [],
     width = data.spritesheet.px.width,
     height = data.spritesheet.px.height,
     url = data.spritesheet.image
 
-  data.sprites.forEach(function(sprite) {
+  data.sprites.forEach(function (sprite) {
     arr.push(
       `.sprite-${sprite.name} {
         display: inline-block;
@@ -81,7 +81,7 @@ var cssTemplate2 = function(data) {
   return arr.join('\n')
 }
 
-gulp.task('css', function() {
+gulp.task('css', function () {
   var processors = []
   return gulp
     .src('./src/*.css')

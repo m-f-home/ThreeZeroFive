@@ -47,6 +47,9 @@ export default {
     background: azure;
     .routes {
       padding: 5px;
+      a:hover {
+        color: skyblue;
+      }
     }
   }
 }
