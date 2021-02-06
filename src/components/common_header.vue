@@ -10,25 +10,25 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, toRefs } from 'vue'
 export default {
   name: 'common-header',
   props: {},
   setup(props) {
     // console.log(props)
-    const list = reactive([
-      { name: 'Home', path: '/' },
-      { name: 'Test', path: '/' },
-      { name: 'aaa', path: '/' },
-      { name: 'bbb', path: '/' },
-      { name: 'ccc', path: '/' },
-      { name: 'ddd', path: '/' },
-    ])
+    const data = reactive({
+      list: [
+        { name: 'Home', path: '/' },
+        { name: 'Test', path: '/' },
+        { name: 'aaa', path: '/' },
+        { name: 'bbb', path: '/' },
+        { name: 'ccc', path: '/' },
+        { name: 'ddd', path: '/' },
+      ],
+    })
     // console.log(list)
 
-    return {
-      list,
-    }
+    return { ...toRefs(data) }
   },
 }
 </script>
