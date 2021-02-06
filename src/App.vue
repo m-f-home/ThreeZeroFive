@@ -1,6 +1,6 @@
 <template>
   <common-header />
-  <router-view />
+  <router-view class="wrap" />
   <common-concact />
 </template>
 
@@ -15,5 +15,10 @@ export default {
 #app {
   width: 100%;
   height: 100%;
+  .wrap {
+    margin-left: 300px;
+    min-height: 100%;
+    padding: 10px;
+  }
 }
 </style>

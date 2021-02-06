@@ -35,11 +35,12 @@ export default {
 
 <style lang="scss">
 .common-header {
-  width: 400px;
+  width: 300px;
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.2) 0 1px 5px 0px;
   background: azure;
   text-align: center;
+  position: fixed;
   .user-info {
     height: 100px;
   }

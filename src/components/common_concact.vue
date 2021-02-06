@@ -4,7 +4,7 @@
       <div
         v-for="item in concactList"
         :key="item.name"
-        class="nav-items"
+        class="nav-items flex"
         @mouseover="mouseover(item)"
         @mouseleave="mouseleave(item)"
       >
@@ -24,14 +24,16 @@
         </div>
       </div>
     </div>
+    <div v-show="showBackTop" class="back-top flex">up</div>
   </div>
 </template>
 
 <script>
-import { reactive, toRefs } from 'vue'
+import { reactive, toRefs, onMounted, ref } from 'vue'
 export default {
   name: 'common-concact',
   setup() {
+    const showBackTop = ref(false)
     const data = reactive({
       concactList: [{ name: '仓库地址', value: 'git', show: true }],
       mouseover(item) {
@@ -52,7 +54,13 @@ export default {
         window.open('https://github.com/m-f-home/ThreeZeroFive')
       },
     })
-    return { ...toRefs(data) }
+    onMounted(() => {
+      window.addEventListener('scroll', () => {
+        let top = document.documentElement.scrollTop
+        showBackTop.value = top > 300 ? true : false
+      })
+    })
+    return { ...toRefs(data), showBackTop }
   },
 }
 </script>
@@ -73,9 +81,6 @@ export default {
       border-radius: 4px;
       margin: 5px 0;
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       position: relative;
       overflow: hidden;
       .block {
@@ -96,12 +101,18 @@ export default {
       }
     }
   }
+  .back-top {
+    width: 44px;
+    height: 44px;
+    border-radius: 44px;
+    background: skyblue;
+  }
   .slip-in {
     animation: mou-in 0.5s;
     animation-fill-mode: forwards;
   }
   .slip-out {
-    animation: mou-out;
+    animation: mou-out 0.5s;
     animation-fill-mode: forwards;
   }
 }

@@ -89,3 +89,8 @@ a.a-click {
 ul,li,ol {
   list-style: none;
 }
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

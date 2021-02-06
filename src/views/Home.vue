@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <!-- <div class="flip-box">
+  <div class="home">
+    <div class="flip-box">
       <div
         :class="{ 'flip-front': playFlip }"
         class="flip-item flip-item-front"
@@ -11,7 +11,7 @@
         <span>反面</span>
       </div>
     </div>
-    <button @click="play">点击翻转</button> -->
+    <button @click="play">点击翻转</button>
   </div>
 </template>
 <script>
@@ -28,7 +28,10 @@ export default {
   },
 }
 </script>
-<style scoped>
+<style lang="scss">
+.home {
+  height: 1200px;
+}
 .flip-box {
   position: relative;
   overflow: hidden;
