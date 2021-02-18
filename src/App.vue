@@ -16,8 +16,8 @@ export default {
   width: 100%;
   height: 100%;
   .wrap {
-    margin-left: 300px;
-    min-height: 100%;
+    margin-top: 60px;
+    // min-height: 100%;
     padding: 10px;
   }
 }

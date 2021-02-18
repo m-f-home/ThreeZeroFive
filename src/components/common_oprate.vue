@@ -24,7 +24,17 @@
         </div>
       </div>
     </div>
-    <div v-show="showBackTop" class="back-top flex">up</div>
+    <div
+      :class="[
+        'back-top',
+        'flex',
+        showBackTop ? '' : 'hide',
+        hover ? 'sprite-top-hover' : 'sprite-top',
+      ]"
+      @click="backTop"
+      @mouseover="hover = true"
+      @mouseout="hover = false"
+    ></div>
   </div>
 </template>
 
@@ -33,6 +43,7 @@ import { reactive, toRefs, onMounted, ref } from 'vue'
 export default {
   name: 'common-oprate',
   setup() {
+    const hover = ref(false)
     const showBackTop = ref(false)
     const data = reactive({
       oprateList: [{ name: '仓库地址', value: 'git', show: true }],
@@ -53,6 +64,9 @@ export default {
       goGithub() {
         window.open('https://github.com/m-f-home/ThreeZeroFive')
       },
+      backTop() {
+        document.documentElement.scrollTop = 0
+      },
     })
     onMounted(() => {
       window.addEventListener('scroll', () => {
@@ -60,7 +74,7 @@ export default {
         showBackTop.value = top > 300 ? true : false
       })
     })
-    return { ...toRefs(data), showBackTop }
+    return { ...toRefs(data), showBackTop, hover }
   },
 }
 </script>
@@ -68,8 +82,8 @@ export default {
 <style lang="scss">
 .common-oprate {
   position: fixed;
-  right: 25px;
-  bottom: 120px;
+  right: calc(44px - 100vw + 100%);
+  bottom: 62px;
   transition: all 0.5s;
   .nav {
     text-align: center;
@@ -102,10 +116,17 @@ export default {
     }
   }
   .back-top {
+    margin-top: 20px;
+    display: block;
     width: 44px;
-    height: 44px;
-    border-radius: 44px;
-    background: skyblue;
+    height: 64px;
+    cursor: pointer;
+    opacity: 1;
+    transition: height 0.5s, opacity 0.5s;
+  }
+  .hide {
+    opacity: 0;
+    height: 0;
   }
   .slip-in {
     animation: mou-in 0.5s;
