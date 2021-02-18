@@ -1,7 +1,7 @@
 <template>
   <common-header />
   <router-view class="wrap" />
-  <common-concact />
+  <common-oprate />
 </template>
 
 <script>

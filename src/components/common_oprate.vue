@@ -1,8 +1,8 @@
 <template>
-  <div class="common-concact">
+  <div class="common-oprate">
     <div class="nav">
       <div
-        v-for="item in concactList"
+        v-for="item in oprateList"
         :key="item.name"
         class="nav-items flex"
         @mouseover="mouseover(item)"
@@ -31,20 +31,20 @@
 <script>
 import { reactive, toRefs, onMounted, ref } from 'vue'
 export default {
-  name: 'common-concact',
+  name: 'common-oprate',
   setup() {
     const showBackTop = ref(false)
     const data = reactive({
-      concactList: [{ name: '仓库地址', value: 'git', show: true }],
+      oprateList: [{ name: '仓库地址', value: 'git', show: true }],
       mouseover(item) {
-        this.concactList.map((el) => {
+        this.oprateList.map((el) => {
           if (el.name === item.name) {
             el.show = false
           }
         })
       },
       mouseleave(item) {
-        this.concactList.map((el) => {
+        this.oprateList.map((el) => {
           if (el.name === item.name) {
             el.show = true
           }
@@ -66,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-.common-concact {
+.common-oprate {
   position: fixed;
   right: 25px;
   bottom: 120px;
