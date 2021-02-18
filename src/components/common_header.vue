@@ -44,11 +44,10 @@ export default {
   z-index: 999;
   .user-info {
     float: right;
-    height: 50px;
+    height: 100%;
     width: 50px;
   }
   .header-nav {
-    background: azure;
     height: 100%;
     .routes {
       padding: 5px;

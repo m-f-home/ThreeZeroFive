@@ -1,18 +1,5 @@
 <template>
-  <div class="home">
-    <div class="flip-box">
-      <div
-        :class="{ 'flip-front': playFlip }"
-        class="flip-item flip-item-front"
-      >
-        <span>正面</span>
-      </div>
-      <div :class="{ 'flip-back': playFlip }" class="flip-item flip-item-back">
-        <span>反面</span>
-      </div>
-    </div>
-    <button @click="play">点击翻转</button>
-  </div>
+  <div class="home"></div>
 </template>
 <script>
 export default {
@@ -28,54 +15,4 @@ export default {
   },
 }
 </script>
-<style lang="scss">
-.home {
-  height: 1200px;
-}
-.flip-box {
-  position: relative;
-  overflow: hidden;
-  height: 100px;
-  width: 120px;
-}
-
-.flip-item {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  transition: all 1s ease-in-out 0s;
-  backface-visibility: hidden;
-  box-sizing: border-box;
-}
-
-.flip-item-front {
-  z-index: 2;
-  background: red;
-  color: white;
-}
-
-.flip-item-back {
-  transform: rotateY(180deg);
-  z-index: 1;
-  background: green;
-  color: white;
-}
-
-.flip-box:hover .flip-item-front {
-  transform: rotateY(180deg);
-}
-
-.flip-box:hover .flip-item-back {
-  transform: rotateY(0deg);
-}
-
-.flip-front {
-  transform: rotateY(180deg);
-}
-
-.flip-back {
-  transform: rotateY(0deg);
-}
-</style>
+<style lang="scss"></style>

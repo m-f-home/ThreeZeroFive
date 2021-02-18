@@ -13,11 +13,10 @@ export default {
 
 <style lang="scss">
 #app {
+  margin-top: 60px;
   width: 100%;
   height: 100%;
   .wrap {
-    margin-top: 60px;
-    // min-height: 100%;
     padding: 10px;
   }
 }
