@@ -5,6 +5,7 @@
 </template>
 
 <script>
+// http://mock.51y.cc:81/docs mock数据
 export default {
   name: 'app',
   setup() {},
