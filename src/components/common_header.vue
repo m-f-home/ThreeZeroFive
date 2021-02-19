@@ -1,6 +1,8 @@
 <template>
   <div class="common-header">
-    <div class="user-info"></div>
+    <div class="user-info flex">
+      <el-avatar :key="url" :src="url"></el-avatar>
+    </div>
     <div class="header-nav flex">
       <div v-for="item in list" :key="item.name" class="routes">
         <router-link :to="item.path">{{ item.name }}</router-link>
@@ -15,7 +17,7 @@ export default {
   name: 'common-header',
   props: {},
   setup(props) {
-    // console.log(props)
+    const url = require('../assets/img/icon.png')
     const data = reactive({
       list: [
         { name: 'Home', path: '/' },
@@ -28,7 +30,7 @@ export default {
     })
     // console.log(list)
 
-    return { ...toRefs(data) }
+    return { ...toRefs(data), url }
   },
 }
 </script>

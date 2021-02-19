@@ -34,7 +34,7 @@ export default {
   overflow: auto;
   .wrap {
     padding: 10px;
-    height: 1000px;
+    height: auto;
   }
 }
 </style>
