@@ -42,7 +42,11 @@
 import { reactive, toRefs, onMounted, ref } from 'vue'
 export default {
   name: 'common-oprate',
-  setup() {
+  props: {
+    target: HTMLDivElement,
+  },
+  emits: ['backtop'],
+  setup(props, context) {
     const hover = ref(false)
     const showBackTop = ref(false)
     const data = reactive({
@@ -65,14 +69,16 @@ export default {
         window.open('https://github.com/m-f-home/ThreeZeroFive')
       },
       backTop() {
-        document.documentElement.scrollTop = 0
+        context.emit('backtop')
       },
     })
     onMounted(() => {
-      window.addEventListener('scroll', () => {
-        let top = document.documentElement.scrollTop
-        showBackTop.value = top > 300 ? true : false
-      })
+      setTimeout(() => {
+        props.target.addEventListener('scroll', () => {
+          let top = props.target.scrollTop
+          showBackTop.value = top > 300 ? true : false
+        })
+      }, 100)
     })
     return { ...toRefs(data), showBackTop, hover }
   },
