@@ -98,3 +98,12 @@ ul,li,ol {
   align-items: center;
   justify-content: center;
 }
+.ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pointer {
+  cursor: pointer;
+}

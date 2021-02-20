@@ -9,8 +9,8 @@ import '@/assets/css/_app_icon.scss'
 
 const app = createApp(App)
 
+// 全局注册组件
 const requireComponents = require.context('./components', true, /.vue$/)
-
 requireComponents.keys().forEach((fileName) => {
   // 获取组件配置
   const componentConfig = requireComponents(fileName)

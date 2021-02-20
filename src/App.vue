@@ -1,7 +1,7 @@
 <template>
-  <div class="root">
+  <div>
     <common-header />
-    <router-view class="wrap" />
+    <router-view class="views" />
     <common-oprate :target="target" @backtop="backTop" />
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
   width: 100%;
   height: 100%;
   overflow: auto;
-  .wrap {
+  .views {
     padding: 10px;
     height: auto;
   }

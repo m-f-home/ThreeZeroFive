@@ -1,7 +1,12 @@
 <template>
   <div class="common-header">
     <div class="user-info flex">
-      <el-avatar :key="url" :src="url"></el-avatar>
+      <el-avatar
+        :key="avatar"
+        :src="avatar"
+        class="pointer"
+        @click="click"
+      ></el-avatar>
     </div>
     <div class="header-nav flex">
       <div v-for="item in list" :key="item.name" class="routes">
@@ -12,12 +17,13 @@
 </template>
 
 <script>
+import common from '../utils/index'
 import { reactive, toRefs } from 'vue'
 export default {
   name: 'common-header',
   props: {},
   setup(props) {
-    const url = require('../assets/img/icon.png')
+    const avatar = require('../assets/img/icon.png')
     const data = reactive({
       list: [
         { name: 'Home', path: '/' },
@@ -27,10 +33,16 @@ export default {
         { name: 'ccc', path: '/' },
         { name: 'ddd', path: '/' },
       ],
+      click() {
+        console.log(new Date().getTime(), 'out')
+        common.debounce(() => {
+          console.log(new Date().getTime(), 'in')
+        }, 5000)
+      },
     })
     // console.log(list)
 
-    return { ...toRefs(data), url }
+    return { ...toRefs(data), avatar }
   },
 }
 </script>
