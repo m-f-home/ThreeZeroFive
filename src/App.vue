@@ -34,7 +34,7 @@ export default {
   overflow: auto;
   .views {
     padding: 10px;
-    height: auto;
+    height: 1000px;
   }
 }
 </style>

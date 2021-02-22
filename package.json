@@ -35,6 +35,7 @@
     "gulp-postcss": "^8.0.0",
     "gulp.spritesmith": "^6.11.0",
     "prettier": "^2.2.1",
+    "svg-sprite-loader": "^5.2.1",
     "vinyl-buffer": "^1.0.1"
   }
 }
