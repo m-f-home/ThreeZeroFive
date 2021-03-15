@@ -6,7 +6,6 @@ import ElementPlus from 'element-plus'
 import 'element-plus/lib/theme-chalk/index.css'
 import '@/assets/css/global.css'
 import '@/assets/css/_app_icon.scss'
-import './icons'
 
 const app = createApp(App)
 
@@ -21,7 +20,13 @@ requireComponents.keys().forEach((fileName) => {
     .split('/')
     [componentName.split('/').length - 1].replace(/_/g, '-')
   app.component(componentName, componentConfig.default || componentConfig)
-  console.log(componentName)
 })
+
+// 处理svg文件
+const svg = require.context('./icons', false, /\.svg$/)
+const requireAll = (requireContext) => {
+  requireContext.keys().map(requireContext)
+}
+requireAll(svg)
 
 app.use(store).use(router).use(ElementPlus).mount('#app')

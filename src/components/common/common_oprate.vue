@@ -51,6 +51,8 @@ export default {
     const showBackTop = ref(false)
     const data = reactive({
       oprateList: [{ name: '仓库地址', value: 'git', show: true }],
+    })
+    const methods = {
       mouseover(item) {
         this.oprateList.map((el) => {
           if (el.name === item.name) {
@@ -71,7 +73,7 @@ export default {
       backTop() {
         context.emit('backtop')
       },
-    })
+    }
     onMounted(() => {
       setTimeout(() => {
         props.target.addEventListener('scroll', () => {
@@ -80,7 +82,7 @@ export default {
         })
       }, 100)
     })
-    return { ...toRefs(data), showBackTop, hover }
+    return { ...toRefs(data), ...methods, showBackTop, hover }
   },
 }
 </script>

@@ -8,20 +8,24 @@
 
 <script>
 import { onMounted, reactive, ref, toRefs } from 'vue'
-// http://mock.51y.cc:81/docs mock数据
 export default {
   name: 'app',
   setup() {
     const target = ref()
-    const data = reactive({
+    const data = reactive({})
+    const methods = {
       backTop() {
         target.value.scrollTo({ top: 0, behavior: 'smooth' })
       },
-    })
+    }
     onMounted(() => {
       target.value = document.getElementById('app')
     })
-    return { ...toRefs(data), target }
+    return {
+      ...toRefs(data),
+      ...methods,
+      target,
+    }
   },
 }
 </script>

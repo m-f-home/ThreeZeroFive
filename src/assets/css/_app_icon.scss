@@ -4,7 +4,23 @@
         width: 44px;
         height: 44px;
         background: url("/img/app_icon.png") no-repeat;
-        background-position: -88px 0px;
+        background-position: -88px -50px;
+      }
+.sprite-icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 40px;
+        height: 40px;
+        background: url("/img/app_icon.png") no-repeat;
+        background-position: -148px 0px;
+      }
+.sprite-logo {
+        display: inline-block;
+        vertical-align: middle;
+        width: 148px;
+        height: 50px;
+        background: url("/img/app_icon.png") no-repeat;
+        background-position: 0px 0px;
       }
 .sprite-top-hover {
         display: inline-block;
@@ -12,7 +28,7 @@
         width: 44px;
         height: 60px;
         background: url("/img/app_icon.png") no-repeat;
-        background-position: 0px 0px;
+        background-position: 0px -50px;
       }
 .sprite-top {
         display: inline-block;
@@ -20,5 +36,5 @@
         width: 44px;
         height: 60px;
         background: url("/img/app_icon.png") no-repeat;
-        background-position: -44px 0px;
+        background-position: -44px -50px;
       }

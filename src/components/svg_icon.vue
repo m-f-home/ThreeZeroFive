@@ -1,5 +1,5 @@
 <template>
-  <svg :class="svgClass" aria-hidden="true" v-on="$listeners">
+  <svg class="svg-icon" aria-hidden="true" :style="svgStyle">
     <use :xlink:href="iconName" />
   </svg>
 </template>
@@ -9,48 +9,38 @@ import { computed } from 'vue'
 export default {
   name: 'svg-icon',
   props: {
-    iconClass: {
+    class: {
       type: String,
       required: true,
     },
-    className: {
+    size: {
+      type: Number,
+    },
+    color: {
       type: String,
       default: '',
     },
   },
   setup(props) {
     const iconName = computed(() => {
-      return `#icon-${props.iconClass}`
+      return `#icon-${props.class}`
     })
-    const svgClass = computed(() => {
-      if (props.className) {
-        return 'svg-icon ' + props.className
-      } else {
-        return 'svg-icon'
-      }
-    })
-    const styleExternalIcon = computed(() => {
+    const svgStyle = computed(() => {
       return {
-        mask: `url(${props.iconClass}) no-repeat 50% 50%`,
-        '-webkit-mask': `url(${props.className}) no-repeat 50% 50%`,
+        width: props.size + 'px',
+        height: props.size + 'px',
+        color: props.color,
       }
     })
-    return { iconName, svgClass, styleExternalIcon }
+    return { iconName, svgStyle }
   },
 }
 </script>
 
 <style>
 .svg-icon {
-  width: 1.5em;
-  height: 1.5em;
   vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
-}
-.svg-external-icon {
-  background-color: currentColor;
-  mask-size: cover !important;
-  display: inline-block;
 }
 </style>

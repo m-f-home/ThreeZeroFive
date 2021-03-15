@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import common from '../utils/index'
+import common from '../../utils/index'
 import { reactive, toRefs } from 'vue'
 export default {
   name: 'common-header',
   props: {},
   setup(props) {
-    const avatar = require('../assets/img/icon.png')
+    const avatar = require('../../assets/img/icon.png')
     const data = reactive({
       list: [
         { name: 'Home', path: '/' },
@@ -33,16 +33,22 @@ export default {
         { name: 'ccc', path: '/' },
         { name: 'ddd', path: '/' },
       ],
+    })
+    const methods = {
       click() {
         console.log(new Date().getTime(), 'out')
         common.debounce(() => {
           console.log(new Date().getTime(), 'in')
         }, 5000)
       },
-    })
+    }
     // console.log(list)
 
-    return { ...toRefs(data), avatar }
+    return {
+      ...toRefs(data),
+      ...methods,
+      avatar,
+    }
   },
 }
 </script>

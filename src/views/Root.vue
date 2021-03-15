@@ -4,6 +4,8 @@
       <common-popover :content="'阿贾克斯较大谁看了大家卡拉觉得老咔叽了'" />
     </div>
     <router-view />
+    <svg-icon ref="svg" :class="'scissors'" :size="50" @click="svgClick" />
+    <svg-test />
     <!-- <div class="home-carousel">
       <el-carousel trigger="click" height="200px" type="card">
         <el-carousel-item v-for="item in 4" :key="item">
@@ -15,22 +17,26 @@
 </template>
 <script>
 import common from '../utils/index'
-import { onMounted, reactive, ref, toRefs } from 'vue'
+import { reactive, ref, toRefs } from 'vue'
 export default {
   name: 'root',
   setup() {
+    const svg = ref()
     const root = ref(null)
-    const data = reactive({
-      click() {
+    const data = reactive({})
+    const methods = {
+      svgClick() {
         common.debounce(() => {
-          console.log(new Date().getTime())
-        }, 5000)
+          console.log(svg, refs)
+        }, 500)
       },
-    })
-    onMounted(() => {
-      // console.log(root)
-    })
-    return { ...toRefs(data), root }
+    }
+    return {
+      ...toRefs(data),
+      ...methods,
+      root,
+      svg,
+    }
   },
 }
 </script>
